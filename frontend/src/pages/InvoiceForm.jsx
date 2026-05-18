@@ -92,7 +92,7 @@ export default function InvoiceForm() {
     const sub = Number(form.subtotal) || 0
     const taxPercent = Number(form.tax_amount) || 0
     const taxValue = sub * (taxPercent / 100)
-    const calculatedTotal = Math.round(sub + taxValue)
+    const calculatedTotal = parseFloat((sub + taxValue).toFixed(2))
 
     const data = {
       number: form.number,
