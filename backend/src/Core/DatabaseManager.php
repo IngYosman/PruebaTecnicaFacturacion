@@ -1,9 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Core;
 
 use Symfony\Component\Yaml\Yaml;
-use App\Connection;
 
 class DatabaseManager
 {
@@ -11,7 +10,7 @@ class DatabaseManager
 
     public function __construct()
     {
-        $configPath = __DIR__ . '/../config/config.yaml';
+        $configPath = __DIR__ . '/../../config/config.yaml';
         $yamlContent = file_get_contents($configPath);
 
         $yamlContent = preg_replace_callback('/%([A-Z_]+)%/', function ($matches) {
