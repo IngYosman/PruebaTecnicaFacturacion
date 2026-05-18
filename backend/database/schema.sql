@@ -62,16 +62,17 @@ INSERT INTO client (document_number, business_name, email, address) VALUES
 ('900444555', 'Textiles Colombianos SAS', 'ventas@textilescol.com', 'Carrera 50 #30-20 Medellin');
 
 -- Facturas de prueba (Datos generados con asistencia de IA)
+-- tax_amount es porcentaje (19 = 19%), total = subtotal + (subtotal * tax_amount / 100)
 INSERT INTO invoice (number, client_id, issue_date, due_date, payment_method, subtotal, tax_amount, total, notes) VALUES
-('FAC-001', 1, '2026-01-15', '2026-02-15', 'Contado', 100000.00, 19000.00, 119000.00, 'Venta de productos'),
-('FAC-002', 2, '2026-02-01', '2026-03-01', 'Credito', 250000.00, 47500.00, 297500.00, 'Servicio de consultoria'),
-('FAC-003', 3, '2026-03-10', '2026-04-10', 'Transferencia', 500000.00, 95000.00, 595000.00, 'Mantenimiento equipos'),
-('FAC-004', 4, '2026-01-20', '2026-02-20', 'Contado', 75000.00, 14250.00, 89250.00, 'Compra de insumos'),
-('FAC-005', 5, '2026-02-15', '2026-03-15', 'Credito', 1500000.00, 285000.00, 1785000.00, 'Servicio de transporte'),
-('FAC-006', 6, '2026-03-01', '2026-04-01', 'Contado', 35000.00, 6650.00, 41650.00, 'Material de oficina'),
-('FAC-007', 7, '2026-03-20', '2026-04-20', 'Transferencia', 3200000.00, 608000.00, 3808000.00, 'Proyecto de construccion'),
-('FAC-008', 8, '2026-04-05', '2026-05-05', 'Credito', 850000.00, 161500.00, 1011500.00, 'Licencias de software'),
-('FAC-009', 9, '2026-04-10', '2026-05-10', 'Contado', 120000.00, 22800.00, 142800.00, 'Productos alimenticios'),
-('FAC-010', 10, '2026-04-15', '2026-05-15', 'Transferencia', 450000.00, 85500.00, 535500.00, 'Telas y materiales'),
-('FAC-011', 1, '2026-04-20', '2026-05-20', 'Contado', 200000.00, 38000.00, 238000.00, 'Pedido adicional productos'),
-('FAC-012', 3, '2026-05-01', '2026-06-01', 'Credito', 680000.00, 129200.00, 809200.00, 'Soporte tecnico mensual');
+('FAC-001', 1, '2026-01-15', '2026-02-15', 'Contado', 100000.00, 19.00, 119000.00, 'Venta de productos'),
+('FAC-002', 2, '2026-02-01', '2026-03-01', 'Credito', 250000.00, 19.00, 297500.00, 'Servicio de consultoria'),
+('FAC-003', 3, '2026-03-10', '2026-04-10', 'Transferencia', 500000.00, 19.00, 595000.00, 'Mantenimiento equipos'),
+('FAC-004', 4, '2026-01-20', '2026-02-20', 'Contado', 75000.00, 19.00, 89250.00, 'Compra de insumos'),
+('FAC-005', 5, '2026-02-15', '2026-03-15', 'Credito', 1500000.00, 19.00, 1785000.00, 'Servicio de transporte'),
+('FAC-006', 6, '2026-03-01', '2026-04-01', 'Contado', 35000.00, 19.00, 41650.00, 'Material de oficina'),
+('FAC-007', 7, '2026-03-20', '2026-04-20', 'Transferencia', 3200000.00, 19.00, 3808000.00, 'Proyecto de construccion'),
+('FAC-008', 8, '2026-04-05', '2026-05-05', 'Credito', 850000.00, 19.00, 1011500.00, 'Licencias de software'),
+('FAC-009', 9, '2026-04-10', '2026-05-10', 'Contado', 120000.00, 19.00, 142800.00, 'Productos alimenticios'),
+('FAC-010', 10, '2026-04-15', '2026-05-15', 'Transferencia', 450000.00, 19.00, 535500.00, 'Telas y materiales'),
+('FAC-011', 1, '2026-04-20', '2026-05-20', 'Contado', 200000.00, 19.00, 238000.00, 'Pedido adicional productos'),
+('FAC-012', 3, '2026-05-01', '2026-06-01', 'Credito', 680000.00, 19.00, 809200.00, 'Soporte tecnico mensual');

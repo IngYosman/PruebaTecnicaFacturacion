@@ -3,6 +3,10 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import Invoices from './pages/Invoices'
+import InvoiceForm from './pages/InvoiceForm'
+import Report from './pages/Report'
+import Profile from './pages/Profile'
 
 function PrivateRoute({ children }) {
   const { token } = useAuth()
@@ -23,6 +27,12 @@ function App() {
                 <Sidebar>
                   <Routes>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/invoices" element={<Invoices />} />
+                    <Route path="/invoices/new" element={<InvoiceForm />} />
+                    <Route path="/invoices/edit/:id" element={<InvoiceForm />} />
+                    <Route path="/report" element={<Report />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="*" element={<Navigate to="/dashboard" />} />
                   </Routes>
                 </Sidebar>
               </PrivateRoute>

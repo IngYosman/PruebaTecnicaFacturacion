@@ -108,8 +108,8 @@ class InvoiceController
                 $errors['subtotal'] = ['El subtotal no puede ser negativo.'];
             }
 
-            if (isset($input['tax_amount']) && $input['tax_amount'] < 0) {
-                $errors['tax_amount'] = ['El IVA no puede ser negativo.'];
+            if (isset($input['tax_amount']) && ($input['tax_amount'] < 0 || $input['tax_amount'] > 100)) {
+                $errors['tax_amount'] = ['El IVA debe estar entre 0 y 100.'];
             }
 
             if (isset($input['total']) && $input['total'] < 0) {
@@ -123,7 +123,8 @@ class InvoiceController
             }
 
             if (isset($input['subtotal']) && isset($input['tax_amount']) && isset($input['total'])) {
-                $expectedTotal = $input['subtotal'] + $input['tax_amount'];
+                $taxValue = $input['subtotal'] * ($input['tax_amount'] / 100);
+                $expectedTotal = $input['subtotal'] + $taxValue;
                 if (abs($expectedTotal - $input['total']) > 0.01) {
                     $errors['total'] = ['El total debe ser igual a subtotal más IVA.'];
                 }
@@ -246,15 +247,16 @@ class InvoiceController
                 $errors['subtotal'] = ['El subtotal no puede ser negativo.'];
             }
 
-            if ($taxAmount < 0) {
-                $errors['tax_amount'] = ['El IVA no puede ser negativo.'];
+            if ($taxAmount < 0 || $taxAmount > 100) {
+                $errors['tax_amount'] = ['El IVA debe estar entre 0 y 100.'];
             }
 
             if ($total < 0) {
                 $errors['total'] = ['El total no puede ser negativo.'];
             }
 
-            $expectedTotal = $subtotal + $taxAmount;
+            $taxValue = $subtotal * ($taxAmount / 100);
+            $expectedTotal = $subtotal + $taxValue;
             if (abs($expectedTotal - $total) > 0.01) {
                 $errors['total'] = ['El total debe ser igual a subtotal más IVA.'];
             }
