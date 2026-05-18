@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 
 function PrivateRoute({ children }) {
   const { token } = useAuth()
@@ -13,15 +15,19 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+
           <Route
-            path="/dashboard"
+            path="/*"
             element={
               <PrivateRoute>
-                <h1>Dashboard</h1>
+                <Sidebar>
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                  </Routes>
+                </Sidebar>
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

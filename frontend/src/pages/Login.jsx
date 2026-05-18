@@ -45,9 +45,9 @@ export default function Login() {
         }}
       >
         <Paper elevation={3} sx={{ p: 4, width: '100%' }}>
-          <Typography variant="h4" align="center" gutterBottom>
-            Sistema de Facturación
-          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+            <img src="/images/logo.png" alt="Logo" style={{ maxWidth: 180, height: 'auto' }} />
+          </Box>
 
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
