@@ -20,11 +20,12 @@ class ResponseApi
         ], $code);
     }
 
-    public static function error(string $message, int $code = 400): void
+    public static function error(string $message, int $code = 400, array $errors = []): void
     {
         $response = [
             'success' => false,
-            'message' => $message
+            'message' => $message,
+            'errors'=> $errors
         ];
 
         self::json($response, $code);

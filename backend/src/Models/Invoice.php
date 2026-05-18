@@ -22,6 +22,11 @@ class Invoice
         return $this->id;
     }
 
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
     public function getNumber(): string
     {
         return $this->number;
