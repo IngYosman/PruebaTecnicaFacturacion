@@ -13,11 +13,7 @@ class Connection
 
     public function getConnection()
     {
-        $dsn = "mysql:
-            host={$this->config['host']};
-            port={$this->config['port']};
-            dbname={$this->config['database']};
-            charset={$this->config['charset']}";
+        $dsn = "mysql:host={$this->config['host']};port={$this->config['port']};dbname={$this->config['database']};charset={$this->config['charset']}";
 
         try {
             $pdo = new \PDO($dsn, $this->config['username'], $this->config['password']);
