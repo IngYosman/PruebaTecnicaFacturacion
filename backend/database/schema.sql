@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS invoice (
 
 -- Usuarios de prueba (password: 123456, hash generado en https://bcrypt-generator.com/)
 INSERT INTO user (email, password, name, last_name, phone, role, status) VALUES
-('admin@facturacion.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Yosman', 'Martinez', '3001234567', 'admin', 1);
+('admin@facturacion.com', '$2y$12$T9TDsZnwL6Er62ytXsRo8urw3iH0Bgem/Ft7.8aSnopTlGQVH.JbW', 'Yosman', 'Martinez', '3001234567', 'admin', 1);
 
 -- Clientes de prueba (Datos generados con asistencia de IA)
 INSERT INTO client (document_number, business_name, email, address) VALUES
